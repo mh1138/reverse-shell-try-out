@@ -1,4 +1,11 @@
-
+import socket
+import subprocess
+import os
+import uuid
+import urllib.request
+import json
+import platform
+import winreg
 
 
 class Persistence:
